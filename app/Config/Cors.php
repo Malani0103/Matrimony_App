@@ -34,7 +34,7 @@ class Cors extends BaseConfig
          *   - ['http://localhost:8080']
          *   - ['https://www.example.com']
          */
-        'allowedOrigins' => [],
+        'allowedOrigins' => ['http://localhost:5173','http://localhost:5173/'],
 
         /**
          * Origin regex patterns for the `Access-Control-Allow-Origin` header.
@@ -57,7 +57,7 @@ class Cors extends BaseConfig
          *
          * @see https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Access-Control-Allow-Credentials
          */
-        'supportsCredentials' => false,
+        'supportsCredentials' => true,
 
         /**
          * Set headers to allow.
@@ -68,38 +68,9 @@ class Cors extends BaseConfig
          *
          * @see https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Access-Control-Allow-Headers
          */
-        'allowedHeaders' => [],
-
-        /**
-         * Set headers to expose.
-         *
-         * The Access-Control-Expose-Headers response header allows a server to
-         * indicate which response headers should be made available to scripts running
-         * in the browser, in response to a cross-origin request.
-         *
-         * @see https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Access-Control-Expose-Headers
-         */
-        'exposedHeaders' => [],
-
-        /**
-         * Set methods to allow.
-         *
-         * The Access-Control-Allow-Methods response header specifies one or more
-         * methods allowed when accessing a resource in response to a preflight
-         * request.
-         *
-         * E.g.:
-         *   - ['GET', 'POST', 'PUT', 'DELETE']
-         *
-         * @see https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Access-Control-Allow-Methods
-         */
-        'allowedMethods' => [],
-
-        /**
-         * Set how many seconds the results of a preflight request can be cached.
-         *
-         * @see https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Access-Control-Max-Age
-         */
-        'maxAge' => 7200,
+        'allowedHeaders'         => ['Content-Type', 'Authorization', 'X-Requested-With'],
+        'exposedHeaders'         => [],
+        'allowedMethods'         => ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],
+        'maxAge'                 => 7200, // Preflight request cache max age in seconds
     ];
 }

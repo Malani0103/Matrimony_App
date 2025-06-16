@@ -5,21 +5,8 @@ namespace App\Controllers\Api;
 use CodeIgniter\RESTful\ResourceController;
 use CodeIgniter\HTTP\ResponseInterface;
 
-class User extends ResourceController
+class Test extends ResourceController
 {
-    public function addUser()
-    {
-        $json = $this->request->getJSON();
-        $name = $json->name;
-
-        $userModel = new UserModel();
-        $userModel->save(['name' => $name]);
-
-        return $this->response->setJSON(['status' => 'ok', 'name' => $name]);
-    }
-
-
-
     /**
      * Return an array of resource objects, themselves in array format.
      *
@@ -27,12 +14,7 @@ class User extends ResourceController
      */
     public function index()
     {
-         $data = [
-            ['id' => 1, 'name' => 'Malani'],
-            ['id' => 2, 'name' => 'Rahul'],
-        ];
-        return $this->respond("malani");
-
+        return 'test';
     }
 
     /**
@@ -101,15 +83,5 @@ class User extends ResourceController
     public function delete($id = null)
     {
         //
-    }
-
-         // OPTIONS method (handle CORS preflight)
-    public function options()
-    {
-        return $this->response
-            ->setStatusCode(200)
-            ->setHeader('Access-Control-Allow-Origin', '*')
-            ->setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS')
-            ->setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
     }
 }

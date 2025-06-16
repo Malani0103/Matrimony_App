@@ -14,7 +14,9 @@
 # ENVIRONMENT
 #--------------------------------------------------------------------
 
-# CI_ENVIRONMENT = production
+ CI_ENVIRONMENT = development
+ display_errors = 1
+
 
 #--------------------------------------------------------------------
 # APP

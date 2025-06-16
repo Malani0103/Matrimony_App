@@ -57,3 +57,7 @@ $paths = new Paths();
 require $paths->systemDirectory . '/Boot.php';
 
 exit(Boot::bootWeb($paths));
+
+header('Access-Control-Allow-Origin: *');
+header("Access-Control-Allow-Headers: Content-Type");
+header("Access-Control-Allow-Methods: GET, POST, PUT, DELETE, OPTIONS");
